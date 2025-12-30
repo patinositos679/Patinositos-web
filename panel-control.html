@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Control - Patinositos</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9fafb;
+        }
+        nav {
+            background: #fff;
+            padding: 20px 10%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2563eb;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .container {
+            padding: 40px 10%;
+        }
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+        h1 { color: #1e3a8a; margin-bottom: 20px; }
+        .btn-logout {
+            background-color: #ef4444;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .btn-logout:hover { background-color: #dc2626; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiM7lmQ5JJl65mGKs13MjO0OeHexglPaXNzELTsl31uifGAGHcE9DO2bsXtvdX4mUob2l6rDHZPVJrU8k1lL9Mn8gxlU8NaU3q2LEkdR73AvetdcqKNVav8xDgu0zOi8GSVAyeub-XaX8rlMQ6wLbloHolK3ETxZm7c8cneo8wsCK_BFeTWo78G6KWG-2qs/w400-h396/Logo-patinositos.jpg" alt="" style="height: 40px; border-radius: 5px;"> Panel Administrativo</div>
+        <a href="login.html" class="btn-logout">Cerrar Sesión</a>
+    </nav>
+    <div class="container">
+        <h1>Bienvenido al Sistema</h1>
+        <div class="card">
+            <h3>Gestión de Alumnos</h3>
+            <p>Aquí podrás ver y gestionar la lista de alumnos inscritos.</p>
+        </div>
+        <div class="card">
+            <h3>Horarios</h3>
+            <p>Administra los horarios de las clases.</p>
+        </div>
+    </div>
+</body>
+</html>

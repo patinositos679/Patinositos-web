@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso Administrativo - Patinositos</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9fafb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2563eb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #1d4ed8;
+        }
+
+        .btn-secondary {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            background-color: #f3f4f6;
+            color: #4b5563;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            box-sizing: border-box;
+            transition: background 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background-color: #e5e7eb;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="logo"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiM7lmQ5JJl65mGKs13MjO0OeHexglPaXNzELTsl31uifGAGHcE9DO2bsXtvdX4mUob2l6rDHZPVJrU8k1lL9Mn8gxlU8NaU3q2LEkdR73AvetdcqKNVav8xDgu0zOi8GSVAyeub-XaX8rlMQ6wLbloHolK3ETxZm7c8cneo8wsCK_BFeTWo78G6KWG-2qs/w400-h396/Logo-patinositos.jpg" alt="" style="height: 40px; border-radius: 5px;"> Patinositos</div>
+        <h2>Ingreso Administrativo</h2>
+        <input type="text" id="usuario-input" placeholder="Usuario">
+        <input type="password" id="clave-input" placeholder="Contraseña">
+        <button onclick="validarIngreso()">Ingresar</button>
+        <button class="btn-secondary" onclick="window.location.href='Untitled-1.html'">← Volver al inicio</button>
+    </div>
+
+    <script>
+        // Función para cifrar la contraseña (convertirla en una huella digital ilegible)
+        async function sha256(message) {
+            const msgBuffer = new TextEncoder().encode(message);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        }
+
+        async function validarIngreso() {
+            // 1. Obtenemos lo que escribió la persona
+            var usuario = document.getElementById("usuario-input").value;
+            var clave = document.getElementById("clave-input").value;
+            
+            // 2. Ciframos la contraseña que escribió el usuario para compararla
+            var hashClave = await sha256(clave);
+
+            // 3. Comparamos con las huellas digitales (Hashes) precalculadas
+            // Hash de "1234" = 03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4
+            // Hash de "patinaje" = 36916d85a6a655294d131d5754d5524657155606411333905f815255069a5527
+            
+            if (usuario === "admin" && hashClave === "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4") {
+                alert("¡Bienvenido! Has ingresado correctamente.");
+                window.location.href = "panel-control.html";
+            } else if (usuario === "profesor" && hashClave === "36916d85a6a655294d131d5754d5524657155606411333905f815255069a5527") {
+                alert("¡Bienvenido Profesor!");
+                window.location.href = "panel-control.html";
+            } else {
+                alert("Error: Usuario o contraseña incorrectos.");
+            }
+        }
+    </script>
+</body>
+</html>
