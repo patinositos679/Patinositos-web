@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Sitio Web - Estilo Readdy</title>
+    <style>
+        /* ESTILOS GENERALES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9fafb;
+        }
+
+        /* NAVEGACIÓN */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10%;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4b5563;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
+        /* SECCIÓN HERO (PRINCIPAL) */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 80px 10%;
+            background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%);
+        }
+
+        .hero-content {
+            max-width: 50%;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #1e3a8a;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #4b5563;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #2563eb;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #1d4ed8;
+        }
+
+        .hero-image {
+            width: 45%;
+            height: 300px;
+            background: #e5e7eb;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-style: italic;
+            color: #9ca3af;
+        }
+
+        /* SECCIÓN SERVICIOS (TARJETAS) */
+        .services {
+            padding: 80px 10%;
+            text-align: center;
+        }
+
+        .services h2 {
+            margin-bottom: 40px;
+            font-size: 2rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            color: #2563eb;
+        }
+
+        /* RESPONSIVO */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero-content {
+                max-width: 100%;
+                margin-bottom: 40px;
+            }
+            .hero-image {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">MiMarca</div>
+        <ul class="nav-links">
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Servicios</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Soluciones Modernas para tu Negocio</h1>
+            <p>Impulsamos tu presencia digital con herramientas de última generación y diseño minimalista.</p>
+            <a href="#" class="btn">Empezar Ahora</a>
+        </div>
+        <div class="hero-image">
+            [ Imagen Representativa ]
+        </div>
+    </header>
+
+    <section class="services">
+        <h2>Nuestros Servicios</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Diseño Web</h3>
+                <p>Creamos interfaces intuitivas y atractivas para tus usuarios.</p>
+            </div>
+            <div class="card">
+                <h3>Optimización</h3>
+                <p>Mejoramos la velocidad y el rendimiento de tu sitio actual.</p>
+            </div>
+            <div class="card">
+                <h3>Estrategia</h3>
+                <p>Planeamos el crecimiento de tu marca de forma inteligente.</p>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
